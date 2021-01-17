@@ -2,9 +2,17 @@ import { render, screen } from "@testing-library/react";
 import Header from "./index";
 
 describe("Header Suite", () => {
-  test("renders Header text", () => {
+  beforeEach(() => {
     render(<Header />);
-    const headerElement = screen.getByText(/Header/i);
+  });
+
+  test("renders Header without crashing", () => {
+    const headerElement = screen.getByTestId("header");
     expect(headerElement).toBeInTheDocument();
+  });
+
+  test("renders a logo", () => {
+    const logoElement = screen.getByRole("img");
+    expect(logoElement).toHaveAttribute("src", "images/wired-brain-coffee-logo.png");
   });
 });

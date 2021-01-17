@@ -6,7 +6,7 @@ describe("Button Suite", () => {
     render(<Button />);
   });
 
-  test("renders Button", () => {
+  test("renders Button without crashing", () => {
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toBeInTheDocument();
   });
