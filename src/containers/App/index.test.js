@@ -2,14 +2,14 @@ import { render, screen } from "@testing-library/react";
 import App from "./index";
 
 describe("App Suite", () => {
-  test("renders App text", () => {
+  test("renders App without crashing", () => {
     render(<App />);
-    const appElement = screen.getByText(/App/i);
+    const appElement = screen.getByTestId("app");
     expect(appElement).toBeInTheDocument();
   });
   test("renders a StoreLocator", () => {
     render(<App />);
-    const storeLocatorElement = screen.getByText(/StoreLocator/i);
+    const storeLocatorElement = screen.getByTestId("storeLocator");
     expect(storeLocatorElement).toBeInTheDocument();
   });
 });
