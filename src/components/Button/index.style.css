@@ -1,0 +1,14 @@
+.button-location {
+  font-size: 18px;
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(226, 225, 225);
+  background-color: white;
+  cursor: pointer;
+}
+
+.button-location:hover {
+  background-color: rgb(247, 247, 247);
+}

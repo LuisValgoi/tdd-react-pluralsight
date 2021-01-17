@@ -1,5 +1,6 @@
 import React from "react";
+import "./index.style.css";
 
 export default function Button() {
-  return <button>Button</button>;
+  return <button className="button-location">Button</button>;
 }
