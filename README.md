@@ -71,9 +71,11 @@
 
 # ToDo
 
-- There should be a button for each store location.
-- Each store button should display the name of the location.
-- Clicking a button passes a value to a function.
-- A map chooser functions returns an image file based on input given to it.
-- When no input is given to the map chooser function, it reeturns a default imagem file name.
-- When bad input is given to the map chooser function, it reeturns a default imagem file name.
+- [ ] There should be a button for each store location.
+- [ ] Each store button should display the name of the location.
+- [ ] There should be a map.
+- [ ] There should be a header above the buttons.
+- [ ] Clicking a button passes a value to a function.
+- [x] A map chooser functions returns an image file based on input given to it.
+- [x] When no input is given to the map chooser function, it reeturns a default imagem file name.
+- [x] When bad input is given to the map chooser function, it reeturns a default imagem file name.
