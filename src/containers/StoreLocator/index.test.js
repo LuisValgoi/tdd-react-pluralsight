@@ -16,9 +16,9 @@ describe("StoreLocator Suite", () => {
     expect(headerElement).toBeInTheDocument();
   });
 
-  test("renders 2 Button", () => {
+  test("renders 3 Button", () => {
     const storeLocatorButtonsElement = screen.getByTestId("store-locator-buttons");
     expect(storeLocatorButtonsElement).toBeInTheDocument();
-    expect(storeLocatorButtonsElement.children).toHaveLength(2);
+    expect(storeLocatorButtonsElement.children).toHaveLength(3);
   });
 });

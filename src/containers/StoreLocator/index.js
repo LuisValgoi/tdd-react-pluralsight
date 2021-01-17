@@ -8,7 +8,8 @@ export default function StoreLocator() {
     <div data-testid="store-locator">
       <Header />
       <div data-testid="store-locator-buttons">
-        <Button />
+        <Button location="Portland" />
+        <Button location="Astoria" />
         <Button />
       </div>
       <Map />
