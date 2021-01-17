@@ -1,10 +1,10 @@
 # Overview
 
-This repo was created to follow up the TDD Using React pluralsight course.
+- This repo was created to follow up the TDD Using React pluralsight course.
 
 # Demo Company
 
-Wired Brain Cofee it's the company and they need a Store Locator.
+- Wired Brain Cofee it's the company and they need a Store Locator.
 
 # Store Locator Requirement
 
@@ -16,22 +16,64 @@ Wired Brain Cofee it's the company and they need a Store Locator.
 - Get directions
 - Scalable
 
-# Available Scripts
+# Containers
 
-- TBD
+- `App.js` its a container. Its purpose its to hold other `components`.
+- They also handle the state of the app.
 
-# Notes
+# Components
 
-Its common to store artefacts into `containers` and `components`.
+- If its does more than rendering a pieace of the UI, it's called a smart/statefull component.
+- The `Header.js` it's a stateless component.
 
-### Containers
+# Talk Testing
 
-`App.js` its a container. Its purpose its to hold other `components`.
+- A set of test it's called: `Suite`.
+- A single test it's called `Spec`.
+- Specs are made of `Assertion`.
+- Assertion produces `true` or `false` values by using `Matcher`.
+- And all of that it's run using `Test Runner`.
 
-They also handle the state of the app.
+# Taking TDD
 
-### Components
+- Stands for: Test Driven Development.
+- Different than "Write all your tests". It's a cycle.
+- Rules / Cycle (![#f03c15](https://placehold.it/15/f03c15/000000?text=+), ![#c5f015](https://placehold.it/15/c5f015/000000?text=+), ![#1589F0](https://placehold.it/15/1589F0/000000?text=+)): 
+    1. ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) First you test you UC.
+    2. ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) Second you implement you UC.
+    3. ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) Then refactor your code.
+    4. Start all over until its done.
 
-If its does more than rendering a pieace of the UI, it's called a smart/statefull component.
+# Talking BDD
 
-The `Header.js` it's a stateless component.
+- Stands for: Behavior Driven Development.
+- BDD comes from TDD.
+- TDD was to hard to explain.
+- BDD simpler way to write tests: _"Don't write a test, describe a behavior"_
+- Example of BDD: `A method, should receive an argument and returs its metadata`.
+
+# Testing Questions
+
+- Does it render?
+- Does it render correctly?
+- Does it handle events correctly?
+- Do conditionals work?
+- Are edge cases handled properly?
+
+# Good Testing
+
+- Each test should be independent of the others.
+- Any behaviors should be specified in only one test.
+- No unnecessary assertions.
+- Test only one code unit at a time.
+- Avoid unnecessary preconditions.
+      - If your tests relies on several things, then you need to refactor the test or the code.
+
+# ToDo
+
+- There should be a button for each store location.
+- Each store button should display the name of the location.
+- Clicking a button passes a value to a function.
+- A map chooser functions returns an image file based on input given to it.
+- When no input is given to the map chooser function, it reeturns a default imagem file name.
+- When bad input is given to the map chooser function, it reeturns a default imagem file name.
