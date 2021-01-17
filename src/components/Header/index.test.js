@@ -4,7 +4,7 @@ import Header from "./index";
 describe("Header Suite", () => {
   test("renders Header text", () => {
     render(<Header />);
-    const linkElement = screen.getByText(/Header/i);
-    expect(linkElement).toBeInTheDocument();
+    const headerElement = screen.getByText(/Header/i);
+    expect(headerElement).toBeInTheDocument();
   });
 });

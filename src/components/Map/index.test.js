@@ -4,7 +4,7 @@ import Map from "./index";
 describe("Map Suite", () => {
   test("renders Map text", () => {
     render(<Map />);
-    const linkElement = screen.getByText(/Map/i);
-    expect(linkElement).toBeInTheDocument();
+    const mapElement = screen.getByText(/Map/i);
+    expect(mapElement).toBeInTheDocument();
   });
 });
