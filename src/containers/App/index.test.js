@@ -9,7 +9,7 @@ describe("App Suite", () => {
   });
   test("renders a StoreLocator", () => {
     render(<App />);
-    const storeLocatorElement = screen.getByTestId("storeLocator");
+    const storeLocatorElement = screen.getByTestId("store-locator");
     expect(storeLocatorElement).toBeInTheDocument();
   });
 });
