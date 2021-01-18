@@ -26,3 +26,18 @@ describe("Map Suite", () => {
     expect(imgElement).toHaveAttribute("src", "images/none.png");
   });
 });
+
+describe("Map Suite -> Custom Props", () => {
+  test("renders the image src when params are given", () => {
+    const imageName = "haha.png";
+    const expectedImagePath = `images/${imageName}`;
+
+    render(<Map imageName={imageName} />);
+
+    const mapElement = screen.getByTestId("map");
+    const imgElement = screen.getByRole("img");
+    expect(mapElement).toContainElement(imgElement);
+    expect(imgElement).toBeInTheDocument();
+    expect(imgElement).toHaveAttribute("src", expectedImagePath);
+  });
+});
