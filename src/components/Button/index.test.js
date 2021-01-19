@@ -14,21 +14,21 @@ describe("Button Suite", () => {
 
 describe("Button Suite - Custom Props", () => {
   test("displays the location when a location is passed to it", () => {
-    const locationName = "Test";
-    render(<Button locationName={locationName} />);
+    const name = "Test";
+    render(<Button name={name} />);
     const buttonElement = screen.getByRole("button");
-    expect(buttonElement).toHaveTextContent(locationName);
+    expect(buttonElement).toHaveTextContent(name);
   });
 
   test("displays All Locations when nothing is passed", () => {
-    render(<Button locationName={undefined} />);
+    render(<Button name={undefined} />);
     const buttonElement = screen.getByRole("button");
     expect(buttonElement).toHaveTextContent("All Locations");
   });
 
   test("call a function passed to it when clicked", () => {
     const mockCallback = jest.fn();
-    render(<Button handleClick={mockCallback} />);
+    render(<Button onClick={mockCallback} />);
     const buttonElement = screen.getByRole("button");
     fireEvent.click(buttonElement);
     expect(mockCallback).toHaveBeenCalledTimes(1);

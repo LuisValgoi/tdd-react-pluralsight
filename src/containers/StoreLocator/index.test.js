@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import StoreLocator from "./index";
 
 describe("StoreLocator Suite", () => {
@@ -20,5 +20,18 @@ describe("StoreLocator Suite", () => {
     const storeLocatorButtonsElement = screen.getByTestId("store-locator-buttons");
     expect(storeLocatorButtonsElement).toBeInTheDocument();
     expect(storeLocatorButtonsElement.children).toHaveLength(3);
+  });
+});
+
+describe("StoreLocator Suite - chooseMap", () => {
+  beforeEach(() => {
+    render(<StoreLocator />);
+  });
+
+  test("updates the map to the portland image once pressed on portland button", () => {
+    const buttonElement = screen.getByRole("button", { name: /portland/i });
+    fireEvent.click(buttonElement);
+    const imgElement = screen.getByAltText("Portland");
+    expect(imgElement).toBeInTheDocument();
   });
 });

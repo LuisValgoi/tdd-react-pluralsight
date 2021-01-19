@@ -13,6 +13,6 @@ describe("Header Suite", () => {
 
   test("renders a logo", () => {
     const logoElement = screen.getByRole("img");
-    expect(logoElement).toHaveAttribute("src", "images/wired-brain-coffee-logo.png");
+    expect(logoElement).toHaveAttribute("src", "/images/wired-brain-coffee-logo.png");
   });
 });

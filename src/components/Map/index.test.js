@@ -23,16 +23,16 @@ describe("Map Suite", () => {
     const imgElement = screen.getByRole("img");
     expect(mapElement).toContainElement(imgElement);
     expect(imgElement).toBeInTheDocument();
-    expect(imgElement).toHaveAttribute("src", "images/none.png");
+    expect(imgElement).toHaveAttribute("src", "/images/none.png");
   });
 });
 
 describe("Map Suite -> Custom Props", () => {
   test("renders the image src when params are given", () => {
-    const imageName = "haha.png";
-    const expectedImagePath = `images/${imageName}`;
+    const image = "haha";
+    const expectedImagePath = `/images/${image}.png`;
 
-    render(<Map imageName={imageName} />);
+    render(<Map image={image} />);
 
     const mapElement = screen.getByTestId("map");
     const imgElement = screen.getByRole("img");

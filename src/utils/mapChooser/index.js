@@ -1,5 +1,5 @@
 function mapChooser(locationName) {
-  if (!locationName) locationName = "default";
-  return `${locationName}.jpg`;
+  if (!locationName) locationName = "none";
+  return `/images/${locationName}.png`;
 }
 export default mapChooser;

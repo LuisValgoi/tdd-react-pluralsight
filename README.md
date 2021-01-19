@@ -26,6 +26,11 @@
 - If its does more than rendering a pieace of the UI, it's called a smart/statefull component.
 - The `Header.js` it's a stateless component.
 
+# Pure Functions
+- Functions that does not handle / messes with anything but the scope of that function.
+- Its clean, decoupled, it messes only with the things of it.
+- i.e: `Formatters`.
+
 # Talk Testing
 
 - A set of test it's called: `Suite`.

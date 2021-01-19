@@ -1,10 +1,10 @@
 import React from "react";
 import "./index.style.css";
 
-export default function Button(props) {
+export default function Button({ onClick, name }) {
   return (
-    <button className="button-location" onClick={props.handleClick}>
-      {props.locationName ? props.locationName : "All Locations"}
+    <button className="button-location" onClick={onClick}>
+      {name ? name : "All Locations"}
     </button>
   );
 }
