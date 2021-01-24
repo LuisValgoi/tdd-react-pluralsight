@@ -1,42 +1,36 @@
-import React, { useCallback, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import Map from "../../components/Map";
-
-const INITIAL_LOCATIONS = [
-  {
-    name: "Portland",
-    image: "portland",
-    address: "Avenue Portland, 123",
-  },
-  {
-    name: "Astoria",
-    image: "astoria",
-    address: "Avenue Astoria, 123",
-  },
-  {
-    name: "",
-    image: "none",
-    address: "N/A",
-  },
-];
+import { fetchShops } from "../../services/shops";
 
 export default function StoreLocator() {
-  const [currentMap, setCurrentMap] = useState(INITIAL_LOCATIONS[INITIAL_LOCATIONS.length - 1]);
+  const [shops, setShops] = useState([]);
+  const [currentMap, setCurrentMap] = useState({});
 
-  const handleChooseLocation = useCallback((image) => {
-    setCurrentMap(INITIAL_LOCATIONS.find((location) => image === location.image));
+  const handleButtonClick = (image) => {
+    const foundShop = shops.find((location) => image === location.image);
+    setCurrentMap(foundShop);
+  };
+
+  useEffect(() => {
+    async function loadData() {
+      const { data } = await fetchShops();
+      setShops(data);
+      setCurrentMap(data[data.length - 1]);
+    }
+    loadData();
   }, []);
 
   return (
     <div data-testid="store-locator">
       <Header />
       <div data-testid="store-locator-buttons">
-        {INITIAL_LOCATIONS.map((store, index) => {
-          return <Button onClick={() => handleChooseLocation(store.image)} key={index} name={store.name} />;
+        {shops.map((store, index) => {
+          return <Button onClick={() => handleButtonClick(store.image)} key={index} name={store.name} />;
         })}
       </div>
-      <Map image={currentMap.image} locationName={currentMap.name} />
+      {shops && <Map image={currentMap.image} locationName={currentMap.name} />}
     </div>
   );
 }

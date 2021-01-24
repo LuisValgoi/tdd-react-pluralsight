@@ -1,41 +1,80 @@
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import StoreLocator from "./index";
+import axios from "axios";
+
+function mockCall() {
+  axios.get.mockImplementation(() =>
+    Promise.resolve({
+      data: [
+        {
+          name: "Portland",
+          image: "portland",
+          address: "Avenue Portland, 123",
+        },
+        {
+          name: "AstoriaUAEHAUHEAUHE",
+          image: "astoria",
+          address: "Avenue Astoria, 123",
+        },
+        {
+          name: "",
+          image: "none",
+          address: "N/A",
+        },
+      ],
+    })
+  );
+}
+
+jest.mock("axios");
+
+beforeEach(() => {
+  mockCall();
+});
 
 describe("StoreLocator Suite", () => {
-  beforeEach(() => {
-    render(<StoreLocator />);
+  test("renders StoreLocator without crashing", async () => {
+    await waitFor(() => {
+      render(<StoreLocator />);
+
+      const storeLocatorElement = screen.getByTestId("store-locator");
+
+      expect(storeLocatorElement).toBeInTheDocument();
+    });
   });
 
-  test("renders StoreLocator without crashing", () => {
-    const storeLocatorElement = screen.getByTestId("store-locator");
+  test("renders Header", async () => {
+    await waitFor(() => {
+      render(<StoreLocator />);
 
-    expect(storeLocatorElement).toBeInTheDocument();
+      const headerElement = screen.getByTestId("header");
+
+      expect(headerElement).toBeInTheDocument();
+    });
   });
 
-  test("renders Header", () => {
-    const headerElement = screen.getByTestId("header");
+  test("renders no buttons right away", async () => {
+    await waitFor(() => {
+      render(<StoreLocator />);
 
-    expect(headerElement).toBeInTheDocument();
-  });
+      const storeLocatorButtonsElement = screen.getByTestId("store-locator-buttons");
 
-  test("renders 3 Button", () => {
-    const storeLocatorButtonsElement = screen.getByTestId("store-locator-buttons");
-
-    expect(storeLocatorButtonsElement).toBeInTheDocument();
-    expect(storeLocatorButtonsElement.children).toHaveLength(3);
+      expect(storeLocatorButtonsElement).toBeInTheDocument();
+      expect(storeLocatorButtonsElement.children).toHaveLength(0);
+    });
   });
 });
 
 describe("StoreLocator Suite - chooseMap", () => {
-  beforeEach(() => {
-    render(<StoreLocator />);
-  });
+  test("updates the map to the portland image once pressed on portland button", async () => {
+    await waitFor(() => {
+      render(<StoreLocator />);
 
-  test("updates the map to the portland image once pressed on portland button", () => {
-    const buttonElement = screen.getByRole("button", { name: /portland/i });
-    fireEvent.click(buttonElement);
+      const buttonElement = screen.getByRole("button", { name: /portland/i });
+      fireEvent.click(buttonElement);
 
-    const imgElement = screen.getByAltText("Portland");
-    expect(imgElement).toBeInTheDocument();
+      const imgElement = screen.getByText(/portland/i);
+      expect(imgElement).toBeInTheDocument();
+    });
   });
 });

@@ -1,27 +1,4 @@
-const getMock = jest.fn().mockResolvedValue({
-  data: {
-    shops: [
-      {
-        name: "Portland",
-        image: "portland",
-        address: "Avenue Portland, 123",
-      },
-      {
-        name: "Astoria",
-        image: "astoria",
-        address: "Avenue Astoria, 123",
-      },
-      {
-        name: "",
-        image: "none",
-        address: "N/A",
-      },
-    ],
-  },
-});
-
-const axiosMock = {
-  get: getMock,
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  get: jest.fn().mockImplementation(() => Promise.resolve({ data: [] })),
 };
-
-export default axiosMock;
