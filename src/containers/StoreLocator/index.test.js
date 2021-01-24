@@ -12,7 +12,7 @@ function mockCall() {
           address: "Avenue Portland, 123",
         },
         {
-          name: "AstoriaUAEHAUHEAUHE",
+          name: "Astoria",
           image: "astoria",
           address: "Avenue Astoria, 123",
         },
@@ -33,10 +33,22 @@ beforeEach(() => {
 });
 
 describe("StoreLocator Suite", () => {
-  test("renders correctly", () => {
-    const { container } = render(<StoreLocator />);
+  test("renders correctly after loading data", async () => {
+    let wrapper;
+    await waitFor(() => {
+      wrapper = render(<StoreLocator />);
+    });
 
-    expect(container).toMatchSnapshot();
+    expect(wrapper.container).toMatchSnapshot();
+  });
+
+  test("renders correctly before loading data", async () => {
+    await waitFor(() => {
+      const { container } = render(<StoreLocator />);
+
+      // eslint-disable-next-line testing-library/no-wait-for-snapshot
+      expect(container).toMatchSnapshot();
+    });
   });
 
   test("renders StoreLocator without crashing", async () => {

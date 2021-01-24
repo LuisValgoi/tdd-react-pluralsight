@@ -1,6 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`StoreLocator Suite renders correctly 1`] = `
+exports[`StoreLocator Suite renders correctly after loading data 1`] = `
+<div>
+  <div
+    data-testid="store-locator"
+  >
+    <header
+      data-testid="header"
+    >
+      <img
+        alt="Wired Brain Logo"
+        src="/images/wired-brain-coffee-logo.png"
+      />
+    </header>
+    <div
+      data-testid="store-locator-buttons"
+    >
+      <button
+        class="button-location"
+      >
+        Portland
+      </button>
+      <button
+        class="button-location"
+      >
+        Astoria
+      </button>
+      <button
+        class="button-location"
+      >
+        All Locations
+      </button>
+    </div>
+    <div
+      class="map-box"
+      data-testid="map"
+    >
+      <img
+        alt=""
+        src="/images/none.png"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`StoreLocator Suite renders correctly before loading data 1`] = `
 <div>
   <div
     data-testid="store-locator"
