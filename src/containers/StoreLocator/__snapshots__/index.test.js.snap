@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StoreLocator Suite renders correctly 1`] = `
+<div>
+  <div
+    data-testid="store-locator"
+  >
+    <header
+      data-testid="header"
+    >
+      <img
+        alt="Wired Brain Logo"
+        src="/images/wired-brain-coffee-logo.png"
+      />
+    </header>
+    <div
+      data-testid="store-locator-buttons"
+    />
+    <div
+      class="map-box"
+      data-testid="map"
+    >
+      <img
+        src="/images/none.png"
+      />
+    </div>
+  </div>
+</div>
+`;

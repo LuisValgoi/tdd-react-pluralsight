@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { act, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import StoreLocator from "./index";
 import axios from "axios";
 
@@ -33,6 +33,12 @@ beforeEach(() => {
 });
 
 describe("StoreLocator Suite", () => {
+  test("renders correctly", () => {
+    const { container } = render(<StoreLocator />);
+
+    expect(container).toMatchSnapshot();
+  });
+
   test("renders StoreLocator without crashing", async () => {
     await waitFor(() => {
       render(<StoreLocator />);
