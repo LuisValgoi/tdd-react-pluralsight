@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import Map from "../../components/Map";
-import { fetchShops } from "../../services/shops";
+import * as ShopAPI from "../../services/shops";
 
 export default function StoreLocator() {
   const [shops, setShops] = useState([]);
@@ -15,9 +15,11 @@ export default function StoreLocator() {
 
   useEffect(() => {
     async function loadData() {
-      const { data } = await fetchShops();
-      setShops(data);
-      setCurrentMap(data[data.length - 1]);
+      try {
+        const { data } = await ShopAPI.fetchShops();
+        setShops(data);
+        setCurrentMap(data[data.length - 1]);
+      } catch (error) {}
     }
     loadData();
   }, []);
